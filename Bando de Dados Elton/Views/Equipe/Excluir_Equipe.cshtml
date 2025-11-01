@@ -1,0 +1,80 @@
+﻿@model Bando_de_Dados_Elton.Models.EquipeViewModel
+
+@{
+    ViewData["Title"] = "Excluir Equipe";
+}
+
+<h1>Excluir Equipe</h1>
+
+<h3>Você tem certeza que deseja excluir este menbro da Equipe?</h3>
+<div>
+    <h4>EquipeViewModel</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Id_Equipe)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Id_Equipe)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Endereço)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Endereço)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Telefone)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Telefone)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Aniversário)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Aniversário)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Numero_Titulo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Numero_Titulo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Seção)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Seção)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Zona)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Zona)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Local_Votação)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Local_Votação)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Responsabilidades)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Responsabilidades)
+        </dd>       
+    </dl>
+
+    <form asp-action="Excluir_Equipe">
+        <input type="submit" value="Excluir" class="btn btn-danger" /> 
+        <a asp-action="Listar_Equipe">Voltar à Lista</a>
+    </form>
+</div>

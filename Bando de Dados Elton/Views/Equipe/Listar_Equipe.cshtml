@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Bando_de_Dados_Elton.Models.EquipeViewModel>
+
+@{
+    ViewData["Title"] = "Listagem da Equipe";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="mb-0">@ViewData["Title"]</h2>
+        <a asp-action="Inserir_Equipe" class="btn btn-primary">
+            <i class="bi bi-person-plus"></i> Novo Integrante
+        </a>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-body p-0">
+            <table class="table table-striped table-hover align-middle mb-0">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Nome</th>
+                        <th>Telefone</th>
+                        <th>Aniversário</th>
+                        <th>Título</th>
+                        <th>Local de Votação</th>
+                        <th>Votos Pessoais</th>
+                        <th>Responsabilidades</th>
+                        <th>Liderança</th>
+                        <th>Bairro</th>
+                        <th>Votos como Líder</th>
+                        <th class="text-center">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (!Model.Any())
+                    {
+                        <tr>
+                            <td colspan="11" class="text-center text-muted py-4">
+                                Nenhum integrante encontrado.
+                            </td>
+                        </tr>
+                    }
+                    else
+                    {
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Nome</td>
+                                <td>@item.Telefone</td>
+                                <td>@item.Aniversário</td>
+                                <td>@item.Numero_Titulo</td>
+                                <td>@item.Local_Votação</td>
+                                <td>@item.Potencial_votos_Pessoal</td>
+                                <td>@item.Responsabilidades</td>
+                                <td>@item.Atua_como_liderança</td>
+                                <td>@item.Bairro_atuação</td>
+                                <td>@item.Potencial_votos_como_Liderança</td>
+                                <td class="text-center">
+                                    <div class="btn-group" role="group">
+                                        <a asp-action="Alterar_Equipe" asp-route-id="@item.Id_Equipe" class="btn btn-sm btn-warning">
+                                            <i class="bi bi-pencil-square"></i>
+                                        </a>
+                                        <a asp-action="Excluir_Equipe" asp-route-id="@item.Id_Equipe" class="btn btn-sm btn-danger" onclick="return confirm('Deseja realmente excluir este integrante?');">
+                                            <i class="bi bi-trash"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Ícones do Bootstrap -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">

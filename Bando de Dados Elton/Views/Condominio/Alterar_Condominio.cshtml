@@ -1,0 +1,79 @@
+﻿@model Bando_de_Dados_Elton.Models.CondominioViewModel
+
+@{
+    ViewData["Title"] = "Alterar Condominio";
+}
+
+<h1>Alterar Condominio</h1>
+
+<h4>CondominioViewModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Alterar_Condominio">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <input asp-for="Id_Condominio" type="hidden" />
+
+            <div class="form-group">
+                <label asp-for="Nome_do_Condomínio" class="control-label"></label>
+                <input asp-for="Nome_do_Condomínio" class="form-control" />
+                <span asp-validation-for="Nome_do_Condomínio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Endereço_do_Condomínio" class="control-label"></label>
+                <input asp-for="Endereço_do_Condomínio" class="form-control" />
+                <span asp-validation-for="Endereço_do_Condomínio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sindico" class="control-label"></label>
+                <input asp-for="Sindico" class="form-control" type="date" />
+                <span asp-validation-for="Sindico" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Liderança_Elton" class="control-label"></label>
+                <input asp-for="Liderança_Elton" class="form-control" />
+                <span asp-validation-for="Liderança_Elton" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Endereço_da_Liderança" class="control-label"></label>
+                <input asp-for="Endereço_da_Liderança" class="form-control" />
+                <span asp-validation-for="Endereço_da_Liderança" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Telefone_Liderança" class="control-label"></label>
+                <input asp-for="Telefone_Liderança" class="form-control" />
+                <span asp-validation-for="Telefone_Liderança" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Aniversário" class="control-label"></label>
+                <input asp-for="Aniversário" class="form-control" />
+                <span asp-validation-for="Aniversário" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Unidades_Habitacionais" class="control-label"></label>
+                <input asp-for="Unidades_Habitacionais" class="form-control" />
+                <span asp-validation-for="Unidades_Habitacionais" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Histórico_de_Serviços" class="control-label"></label>
+                <input asp-for="Histórico_de_Serviços" class="form-control" />
+                <span asp-validation-for="Histórico_de_Serviços" class="text-danger"></span>
+            </div>          
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Listar_Condominio">Back to List</a>
+</div>
+
+@* @section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+ *@

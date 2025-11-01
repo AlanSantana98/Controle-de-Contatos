@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Bando_de_Dados_Elton.Models.CondominioViewModel>
+
+@{
+    ViewData["Title"] = "Listagem de Condomínios";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>@ViewData["Title"]</h2>
+        <a asp-action="Inserir_Condominio" class="btn btn-primary">
+            <i class="bi bi-building-add"></i> Novo Condomínio
+        </a>
+    </div>
+
+    <table class="table table-bordered table-striped table-hover align-middle shadow-sm">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Nome do Condomínio</th>
+                <th>Endereço</th>
+                <th>Sindico</th>
+                <th>Liderança</th>
+                <th>Endereço da Liderança</th>
+                <th>Telefone</th>
+                <th>Aniversário</th>
+                <th>Unidades Habitacionais</th>
+                <th>Histórico de Serviços</th>
+                <th class="text-center">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id_Condominio</td>
+                        <td>@item.Nome_do_Condomínio</td>
+                        <td>@item.Endereço_do_Condomínio</td>
+                        <td>@item.Sindico</td>
+                        <td>@item.Liderança_Elton</td>
+                        <td>@item.Endereço_da_Liderança</td>
+                        <td>@item.Telefone_Liderança</td>
+                        <td>@item.Aniversário</td>
+                        <td>@item.Unidades_Habitacionais</td>
+                        <td>@item.Histórico_de_Serviços</td>
+                        <td class="text-center">
+                            <a asp-action="Alterar_Condominio" asp-route-id="@item.Id_Condominio" class="btn btn-sm btn-warning me-1" title="Editar">
+                                <i class="bi bi-pencil-square"></i>
+                            </a>
+                            <a asp-action="Excluir_Condominio" asp-route-id="@item.Id_Condominio" class="btn btn-sm btn-danger" onclick="return confirm('Deseja realmente excluir este condomínio?');" title="Excluir">
+                                <i class="bi bi-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="10" class="text-center text-muted py-3">
+                        Nenhum condomínio encontrado.
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<!-- Ícones do Bootstrap -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">

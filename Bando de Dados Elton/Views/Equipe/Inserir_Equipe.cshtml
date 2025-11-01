@@ -1,0 +1,92 @@
+﻿@model Bando_de_Dados_Elton.Models.EquipeViewModel
+
+@{
+    ViewData["Title"] = "Inserir Equipe";
+}
+
+<h1>Inserir Equipe</h1>
+
+<h4>EquipeViewModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Inserir_Equipe" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Endereço" class="control-label"></label>
+                <input asp-for="Endereço" class="form-control" />
+                <span asp-validation-for="Endereço" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Aniversário" class="control-label"></label>
+                <input asp-for="Aniversário" class="form-control" />
+                <span asp-validation-for="Aniversário" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Numero_Titulo" class="control-label"></label>
+                <input asp-for="Numero_Titulo" class="form-control" />
+                <span asp-validation-for="Numero_Titulo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Seção" class="control-label"></label>
+                <input asp-for="Seção" class="form-control" />
+                <span asp-validation-for="Seção" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Zona" class="control-label"></label>
+                <input asp-for="Zona" class="form-control" />
+                <span asp-validation-for="Zona" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Local_Votação" class="control-label"></label>
+                <input asp-for="Local_Votação" class="form-control" />
+                <span asp-validation-for="Local_Votação" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Potencial_votos_Pessoal" class="control-label"></label>
+                <input asp-for="Potencial_votos_Pessoal" class="form-control" />
+                <span asp-validation-for="Potencial_votos_Pessoal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Responsabilidades" class="control-label"></label>
+                <input asp-for="Responsabilidades" class="form-control" />
+                <span asp-validation-for="Responsabilidades" class="text-danger"></span>
+            </div> 
+              <div class="form-group">
+                <label asp-for="Atua_como_liderança" class="control-label"></label>
+                <input asp-for="Atua_como_liderança" class="form-control" />
+                <span asp-validation-for="Atua_como_liderança" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Bairro_atuação" class="control-label"></label>
+                <input asp-for="Bairro_atuação" class="form-control" />
+                <span asp-validation-for="Bairro_atuação" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Potencial_votos_como_Liderança" class="control-label"></label>
+                <input asp-for="Potencial_votos_como_Liderança" class="form-control" />
+                <span asp-validation-for="Potencial_votos_como_Liderança" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Listar_Equipe">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+

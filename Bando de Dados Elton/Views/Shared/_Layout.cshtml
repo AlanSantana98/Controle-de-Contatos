@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Bando_de_Dados_Elton</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Bando_de_Dados_Elton.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* Barra lateral fixa */
+        .sidebar {
+            height: 100%;
+            width: 200px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #333;
+            overflow-x: hidden;
+            transition: width 0.3s;
+            white-space: nowrap;
+            padding-top: 60px; /* Evitar sobreposição com a navbar */
+        }
+
+        /* Barra lateral recolhida */
+        .sidebar.reduzida {
+            width: 60px;
+        }
+
+        /* Links da barra lateral */
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #575757;
+        }
+
+        .sidebar-toggle {
+            padding: 10px;
+            cursor: pointer;
+            background-color: #444;
+            color: white;
+            border: none;
+            text-align: center;
+            width: 100%;
+        }
+
+        /* Conteúdo principal ajustado conforme a barra lateral */
+        .main-content {
+            margin-left: 200px; /* Mesma largura da barra lateral */
+            padding: 15px;
+            transition: margin-left 0.3s;
+        }
+
+        .sidebar.reduzida~.main-content {
+            margin-left: 60px; /* Ajusta o conteúdo para a barra lateral recolhida */
+        }
+
+        .sidebar.reduzida a span {
+            display: none;
+        }
+
+        .sidebar.reduzida a::before {
+            font-size: 18px;
+        }
+
+        .sidebar a span {
+            margin-left: 10px;
+        }
+
+        .sidebar a i {
+            margin-right: 10px;
+        }
+
+        /* Responsivo: Ocultar barra lateral em telas menores e ajustá-la sob demanda */
+         (max-width: 768px) {
+            .sidebar {
+                width: 60px;
+           }
+
+            .main-content {
+                margin-left: 60px;
+            }
+
+            .sidebar.reduzida~.main-content {
+                margin-left: 0;
+            }
+
+            .sidebar a span {
+                display: none;
+            }
+        }
+
+        /* Seção de imagens centralizadas */
+        .image-center-section {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .image-center-section img {
+            border-radius: 50%; /* Imagem redonda */
+            object-fit: cover;
+            width: 120px;
+            height: 120px;
+            margin: 0 10px;
+        }
+
+        (max-width: 768px) {
+            .image-center-section img {
+                width: 80px;
+                height: 80px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Barra lateral -->
+    <div class="sidebar" id="sidebar">
+        <a href="javascript:void(0);" class="sidebar-toggle" onclick="toggleSidebar()">☰</a>
+        <a href="@Url.Action("Index", "Home")"><i class="fas fa-home"></i><span>Home</span></a>
+        <a href="@Url.Action("Listar_Equipe", "Equipe")"><i class="fas fa-users"></i><span>Equipe</span></a>
+        <a href="@Url.Action("Listar_Igreja", "Igreja")"><i class="fas fa-church"></i><span>Igreja</span></a>
+        <a href="@Url.Action("Listar_Lideranca", "Lideranca")"><i class="fas fa-user-tie"></i><span>Liderança</span></a>
+        <a href="@Url.Action("Listar_Condominio", "Condominio")"><i class="fas fa-building"></i><span>Condomínio</span></a>
+        <a href="@Url.Action("Listar_Segmento", "Segmento")"><i class="fas fa-shopping-cart"></i><span>Segmento</span></a>
+        <a href="@Url.Action("Privacy", "Home")"><i class="fas fa-lock"></i><span>Privacidade</span></a>
+    </div>
+
+    <!-- Conteúdo principal -->
+    <div class="main-content">
+        <div class="container">
+
+            <!-- Seção de imagens centralizadas -->
+            <div class="image-center-section">
+                <!-- Exemplo de imagens -->
+                <img src="~/imagens/carro_01.jpg" alt="Pessoa 1">
+                <img src="~/imagens/carro_02.jpg" alt="Pessoa 2">
+                <img src="~/imagens/carro_03.jpg" alt="Pessoa 3">
+            </div>
+
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+
+        <footer class="border-top footer text-muted">
+            <div class="container">
+                &copy; 2024 - Banco de Dados Elton - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
+    <script>
+        function toggleSidebar() {
+            var sidebar = document.getElementById("sidebar");
+            sidebar.classList.toggle("reduzida");
+        }
+    </script>
+</body>
+</html>

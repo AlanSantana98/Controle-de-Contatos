@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Bando_de_Dados_Elton.Models.LiderancaViewModel>
+
+@{
+    ViewData["Title"] = "Listagem da Liderança";
+    Layout = "_Layout";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>@ViewData["Title"]</h2>
+        <a asp-action="Inserir_Lideranca" class="btn btn-primary">
+            <i class="bi bi-person-plus"></i> Nova Liderança
+        </a>
+    </div>
+
+    <table class="table table-bordered table-striped table-hover align-middle shadow-sm">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Endereço</th>
+                <th>Telefone</th>
+                <th>Aniversário</th>
+                <th>Função</th>
+                <th>Número Título</th>
+                <th>Seção</th>
+                <th>Zona</th>
+                <th>Local Votação</th>
+                <th>Região Atuação</th>
+                <th>Potencial Votos</th>
+                <th>Histórico</th>
+                <th class="text-center">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id_Liderança</td>
+                        <td>@item.Nome_da_Liderança</td>
+                        <td>@item.Endereço</td>
+                        <td>@item.Telefone</td>
+                        <td>@item.Aniversario</td>
+                        <td>@item.Função</td>
+                        <td>@item.Numero_Titulo</td>
+                        <td>@item.Seção</td>
+                        <td>@item.Zona</td>
+                        <td>@item.Local_votação</td>
+                        <td>@item.Região_de_Atuação</td>
+                        <td>@item.Potencial_de_Votos</td>
+                        <td>@item.Histórico_de_Serviços</td>
+                        <td class="text-center">
+                            <a asp-action="Alterar_Lideranca" asp-route-id="@item.Id_Liderança" class="btn btn-sm btn-warning me-1">
+                                <i class="bi bi-pencil-square"></i>
+                            </a>
+                            <a asp-action="Excluir_Lideranca" asp-route-id="@item.Id_Liderança" class="btn btn-sm btn-danger" onclick="return confirm('Deseja realmente excluir esta liderança?');">
+                                <i class="bi bi-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="14" class="text-center text-muted py-3">
+                        Nenhuma liderança encontrada.
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
